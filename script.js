@@ -51,7 +51,7 @@ function playRound(humanChoice, computerChoice) {
     }
 
     if (result == 1) {
-        console.log("Your choice: ${humanchoice}")
+        console.log("Your choice: " + humanSelection)
     }
 }
 
