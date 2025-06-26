@@ -1,3 +1,14 @@
+function getComputerChoice() {
+    let randomChoice = Math.random() * 3;
+    if(randomChoice < 1){
+        return "rock"
+    } else if(randomChoice < 2){
+        return "paper"
+    } else {
+        return "scissors"
+    }
+}
+
 function getHumanChoice() {
     const choice = prompt("Choose one of the following options to play:\n1.Rock\n2.Paper\n3.Scissors");
 
@@ -50,13 +61,33 @@ function playRound(humanChoice, computerChoice) {
         }
     }
 
-    if (result == 1) {
-        console.log("Your choice: " + humanSelection)
+    console.log("Your choice: " + humanChoice + "\nComputer's choice: " + computerChoice)
+
+    if ( result == 1){
+        console.log("It is a draw!")
     }
+    if (result == 2){
+        computerScore ++;
+        console.log("You lose!")
+    }
+    if (result == 3){
+        humanScore ++;
+        console.log("You win!")
+    }
+
+    console.log("Computer Score: " + computerScore + "\nYour Score: " + humanScore);
+
+
 }
 
 let humanScore = 0, computerScore = 0;
-console.log(humanScore, computerScore)
 
-let humanSelection = getHumanChoice();
-console.log("Your choice: " + humanSelection)
+for (let index = 0; index < 5; index++) {
+    
+
+    let computerSelection = getComputerChoice();
+    let humanSelection = getHumanChoice();
+
+    playRound(humanSelection, computerSelection);
+}
+
